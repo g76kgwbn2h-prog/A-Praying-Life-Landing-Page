@@ -76,10 +76,15 @@
 
     .site-header-inner {
       min-height: 72px;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: "logo title actions";
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
+    }
+
+    .site-logo {
+      grid-area: logo;
     }
 
     .site-logo img {
@@ -88,17 +93,29 @@
       filter: brightness(0) invert(1);
     }
 
+    .header-event-title {
+      grid-area: title;
+      justify-self: center;
+      text-align: center;
+      color: #ffffff;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: clamp(0.84rem, 1.25vw, 1.1rem);
+      line-height: 1.1;
+      white-space: nowrap;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
     .header-meta {
+      grid-area: actions;
+      justify-self: end;
       display: flex;
       align-items: center;
       gap: 0.9rem;
       color: #e6f1ff;
       font-size: 0.96rem;
-    }
-
-    .header-meta .phone {
-      text-decoration: none;
-      white-space: nowrap;
     }
 
     .btn {
@@ -162,21 +179,25 @@
     }
 
     .hero-details {
-      margin-top: 1rem;
+      margin-top: 1.15rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.72rem;
     }
 
     .hero-details span {
-      padding: 0.44rem 0.78rem;
+      padding: 0.62rem 1.08rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.52);
-      background: rgba(255, 255, 255, 0.12);
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.16);
+      font-family: "Montserrat", sans-serif;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: clamp(1.03rem, 1.15vw, 1.2rem);
+      line-height: 1.22;
+      letter-spacing: 0.01em;
       color: #f3f7fe;
+      box-shadow: 0 6px 14px rgba(8, 18, 30, 0.24);
     }
 
     .hero .btn {
@@ -506,6 +527,16 @@
         min-height: 280px;
       }
 
+      .hero-details {
+        margin-top: 1rem;
+        gap: 0.5rem;
+      }
+
+      .hero-details span {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.98rem;
+      }
+
       .story-photo.book {
         width: 160px;
         height: 210px;
@@ -540,6 +571,12 @@
 
       .site-header-inner {
         min-height: 66px;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "logo actions"
+          "title title";
+        row-gap: 0.45rem;
+        padding: 0.55rem 0 0.7rem;
       }
 
       .header-meta {
@@ -547,8 +584,9 @@
         font-size: 0.88rem;
       }
 
-      .header-meta .phone {
-        display: none;
+      .header-event-title {
+        font-size: clamp(0.9rem, 3.9vw, 1.08rem);
+        letter-spacing: 0.07em;
       }
     }
   </style>
@@ -559,8 +597,8 @@
       <a class="site-logo" href="https://www.stphilips.net.au/" aria-label="St Philip's Anglican Church Cottesloe">
         <img src="https://images.squarespace-cdn.com/content/v1/5ddf4aa18adffd3a0d280e98/1574920534373-B3Q7ND89H5HY3OPY7KYM/ColourWeb.png?format=1500w" alt="St Philip's Anglican Church Cottesloe">
       </a>
+      <div class="header-event-title">A PRAYING LIFE SEMINAR</div>
       <div class="header-meta">
-        <a class="phone" href="tel:+61893851042">+61 8 9385 1042</a>
         <a class="btn" href="#rsvp">RSVP Here</a>
       </div>
     </div>
@@ -571,8 +609,7 @@
       <h1>A Praying Life</h1>
       <p>Helping you and your church live all of life with Jesus through prayer</p>
       <div class="hero-details">
-        <span>Friday-Saturday, July 31-August 1, 2026</span>
-        <span>St Philip's Anglican Church Cottesloe</span>
+        <span>July 31 - August 1</span>
       </div>
       <a class="btn" href="#rsvp">RSVP Here</a>
     </div>
