@@ -116,7 +116,7 @@
       color: #fff;
       background:
         linear-gradient(rgba(10, 20, 33, 0.5), rgba(10, 20, 33, 0.5)),
-        url("https://cdn.shopify.com/s/files/1/1668/1459/files/iStock-847575018_1.jpg?v=1745949186&width=1946")
+        url("assets/praying-holding-hands.avif")
         center / cover no-repeat;
     }
 
@@ -169,6 +169,89 @@
 
     main section {
       padding: clamp(2.1rem, 5vw, 3.9rem) 0;
+    }
+
+    .story-block {
+      background: #eff1f4;
+      border-top: 1px solid #dde2ea;
+      border-bottom: 1px solid #dde2ea;
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .story-copy h2 {
+      margin: 0 0 1rem;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      color: #314b66;
+    }
+
+    .story-copy p {
+      margin: 0 0 0.8rem;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.34;
+      color: #32556a;
+      font-weight: 400;
+      max-width: 29ch;
+    }
+
+    .story-collage {
+      position: relative;
+      min-height: 500px;
+    }
+
+    .story-photo {
+      position: absolute;
+      margin: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(26, 44, 65, 0.2);
+    }
+
+    .story-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-photo.book {
+      width: 190px;
+      height: 250px;
+      left: 22px;
+      top: 4px;
+      z-index: 2;
+    }
+
+    .story-photo.clouds {
+      width: 175px;
+      height: 250px;
+      right: 2px;
+      top: 48px;
+      z-index: 1;
+    }
+
+    .story-photo.ocean {
+      width: 165px;
+      height: 228px;
+      left: 78px;
+      top: 272px;
+      z-index: 1;
+    }
+
+    .story-photo.hands {
+      width: 250px;
+      height: 345px;
+      left: 145px;
+      top: 84px;
+      z-index: 3;
     }
 
     .section-title {
@@ -370,11 +453,44 @@
     }
 
     @media (max-width: 980px) {
+      .story-layout,
       .overview,
       .schedule-grid,
       .leader,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .story-collage {
+        min-height: 430px;
+      }
+
+      .story-photo.book {
+        width: 160px;
+        height: 210px;
+        left: 0;
+        top: 0;
+      }
+
+      .story-photo.clouds {
+        width: 145px;
+        height: 205px;
+        right: 0;
+        top: 30px;
+      }
+
+      .story-photo.ocean {
+        width: 135px;
+        height: 190px;
+        left: 45px;
+        top: 238px;
+      }
+
+      .story-photo.hands {
+        width: 210px;
+        height: 285px;
+        left: 108px;
+        top: 72px;
       }
 
       .footer ul {
@@ -422,6 +538,30 @@
   </section>
 
   <main>
+    <section class="story-block">
+      <div class="container story-layout">
+        <article class="story-copy">
+          <h2>How would our lives change if we were always in conversation with the Father?</h2>
+          <p>What if we experienced the Spirit's presence as a lived reality, not just an abstract idea?</p>
+          <p>When we learn to live a prayerfully dependent life, inviting Jesus into every moment, we can watch in wonder as the story unfolds.</p>
+        </article>
+        <div class="story-collage" aria-label="Prayer collage images">
+          <figure class="story-photo book">
+            <img src="assets/optimized/book.jpg" alt="Bible and coffee cup on a wooden table">
+          </figure>
+          <figure class="story-photo clouds">
+            <img src="assets/optimized/clouds.jpg" alt="Clouds and sun rays in the sky">
+          </figure>
+          <figure class="story-photo ocean">
+            <img src="assets/optimized/ocean.jpg" alt="Ocean waves from above">
+          </figure>
+          <figure class="story-photo hands">
+            <img src="assets/optimized/hands.jpg" alt="Person praying with folded hands">
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="container overview">
         <article class="card">
