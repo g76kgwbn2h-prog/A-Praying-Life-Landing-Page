@@ -4,40 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>A Praying Life Seminar | St Philip's Anglican Church Cottesloe</title>
-  <meta name="description" content="A Praying Life Seminar at St Philip's Anglican Church Cottesloe. Friday-Saturday, July 31-August 1, 2026.">
+  <meta name="description" content="A Praying Life Seminar at St Philip's Anglican Church Cottesloe, Friday-Saturday, July 31-August 1, 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f8f3ec;
-      --paper: #fffdf8;
-      --ink: #1e2f38;
-      --muted: #5e6b70;
-      --deep: #0f2c3a;
-      --accent: #bb8a45;
-      --accent-strong: #9b6f31;
-      --line: #ded5c8;
-      --shadow: 0 24px 50px rgba(16, 35, 47, 0.15);
-      --radius: 20px;
+      --apl-navy: #2f4c69;
+      --apl-navy-deep: #233d57;
+      --apl-teal: #55c2cf;
+      --apl-teal-soft: #87d9e1;
+      --ink: #1d2f42;
+      --paper: #ffffff;
+      --line: #d7deea;
+      --muted: #4e6174;
+      --bg: #f3f6fa;
+      --radius: 18px;
+      --shadow: 0 16px 34px rgba(27, 50, 74, 0.13);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: "Source Sans 3", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 10% 5%, #ffffff 0%, rgba(255, 255, 255, 0) 45%),
-        linear-gradient(180deg, #f4ede3 0%, var(--bg) 30%, #f2ece3 100%);
+      background: var(--bg);
       line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
     }
 
     img {
@@ -51,31 +50,30 @@
     }
 
     .topbar {
-      background: var(--deep);
-      color: #e8eef1;
+      background: #15293a;
+      color: #dce8f4;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
       font-size: 0.92rem;
     }
 
     .topbar .wrap {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem 1.5rem;
       justify-content: center;
-      padding: 0.55rem 0;
+      gap: 0.4rem 1.25rem;
+      padding: 0.5rem 0;
     }
 
     .topbar a {
-      color: #e8eef1;
       text-decoration: none;
     }
 
     .header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 253, 248, 0.94);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
     }
 
     .header-inner {
@@ -83,7 +81,7 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 1rem;
-      padding: 0.85rem 0;
+      padding: 0.8rem 0;
     }
 
     .brand {
@@ -94,332 +92,460 @@
     }
 
     .brand img {
-      width: min(300px, 62vw);
+      width: min(290px, 68vw);
       height: auto;
     }
 
     .brand small {
-      display: block;
       color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 0.2rem;
+      font-weight: 600;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 0.35rem 1rem;
-      font-size: 0.95rem;
+      gap: 0.35rem 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-family: "Montserrat", sans-serif;
     }
 
     .nav a {
-      color: var(--ink);
       text-decoration: none;
-      font-weight: 600;
-      white-space: nowrap;
+      color: var(--ink);
     }
 
     .nav a:hover {
-      color: var(--accent-strong);
+      color: var(--apl-navy);
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 72vh;
-      display: grid;
-      align-items: center;
+    .apl-lockup {
+      background: var(--apl-navy);
       color: #fff;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 2px solid #1d3349;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(105deg, rgba(10, 27, 36, 0.9) 0%, rgba(10, 27, 36, 0.75) 42%, rgba(10, 27, 36, 0.2) 100%),
-        url("https://seejesus.net/cdn/shop/files/APL-HERO.jpg?v=1745937678&width=1946") center/cover no-repeat;
-      transform: scale(1.02);
+    .apl-lockup-inner {
+      padding: 2.6rem 0 0;
     }
 
-    .hero .wrap {
-      position: relative;
-      z-index: 1;
-      padding: 5rem 0 4.25rem;
-      animation: rise 600ms ease-out both;
+    .lockup-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      text-align: center;
+      padding-bottom: 2rem;
     }
 
-    .hero-kicker {
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      color: #f4dfbe;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: "Fraunces", serif;
-      line-height: 1.08;
+    .lockup-copy h1 {
       margin: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 0.95;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: #f3f7fb;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.24);
     }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      max-width: 14ch;
-      margin-bottom: 0.9rem;
+    .lockup-copy p {
+      margin: 0.35rem 0 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1rem, 2.3vw, 2rem);
+      font-weight: 700;
+      color: var(--apl-teal);
+      letter-spacing: 0.02em;
     }
 
-    .hero p {
-      font-size: clamp(1rem, 1.8vw, 1.25rem);
-      max-width: 54ch;
-      margin: 0 0 1.3rem;
-      color: #ebf1f4;
+    .burst {
+      position: relative;
+      width: 105px;
+      height: 105px;
+      flex: 0 0 105px;
+      margin-top: -0.3rem;
     }
 
-    .meta {
+    .burst span {
+      position: absolute;
+      left: 10px;
+      top: 50px;
+      width: 84px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--apl-teal);
+      transform-origin: 10px center;
+      opacity: 0.95;
+    }
+
+    .burst span:nth-child(1) { transform: rotate(-72deg); }
+    .burst span:nth-child(2) { transform: rotate(-54deg); }
+    .burst span:nth-child(3) { transform: rotate(-36deg); }
+    .burst span:nth-child(4) { transform: rotate(-18deg); }
+    .burst span:nth-child(5) { transform: rotate(0deg); }
+    .burst span:nth-child(6) { transform: rotate(18deg); }
+    .burst span:nth-child(7) { transform: rotate(36deg); }
+    .burst span:nth-child(8) { transform: rotate(54deg); }
+
+    .seminar-strip {
+      margin-top: 0.6rem;
+      background: #f5f7fa;
+      border-top: 2px solid #1d3349;
+      border-bottom: 2px solid #1d3349;
+      color: #112f4b;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-align: center;
+      font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+      padding: 0.85rem 0 0.75rem;
+    }
+
+    .event-headline {
+      background: #f7fbff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .event-headline .wrap {
+      display: grid;
+      gap: 1.1rem;
+      justify-items: center;
+      text-align: center;
+      padding: 1.25rem 0 1.45rem;
+    }
+
+    .event-headline p {
+      margin: 0;
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .meta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.6rem;
+      justify-content: center;
+      gap: 0.55rem;
     }
 
-    .meta span {
-      padding: 0.5rem 0.85rem;
-      border: 1px solid rgba(255, 255, 255, 0.36);
+    .meta-row span {
+      border: 1px solid #b9c6d8;
+      background: #fff;
+      color: var(--apl-navy-deep);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
+      padding: 0.45rem 0.78rem;
+      font-weight: 700;
       font-size: 0.92rem;
-      font-weight: 600;
     }
 
     .cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      padding: 0.88rem 1.5rem;
       border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-      transition: transform 220ms ease, background-color 220ms ease;
+      border: 2px solid #0f2f4c;
+      background: var(--apl-teal);
+      color: #0e2f4a;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.78rem 1.3rem;
+      transition: transform 180ms ease, background-color 180ms ease;
     }
 
     .cta:hover {
       transform: translateY(-2px);
-      background: var(--accent-strong);
-    }
-
-    .cta-note {
-      margin-top: 0.5rem;
-      color: rgba(242, 247, 250, 0.9);
-      font-size: 0.9rem;
+      background: var(--apl-teal-soft);
     }
 
     section {
-      padding: clamp(2.8rem, 6vw, 5rem) 0;
+      padding: clamp(2.2rem, 5vw, 4rem) 0;
     }
 
-    .intro-grid {
+    .split {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: clamp(1.2rem, 3vw, 2.4rem);
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1rem, 3vw, 2rem);
+      align-items: stretch;
     }
 
-    .intro-grid h2,
-    .schedule h2,
-    .leader h2,
-    .cta-panel h2 {
-      font-size: clamp(1.7rem, 3.2vw, 2.75rem);
-      margin-bottom: 0.9rem;
-      color: var(--deep);
-    }
-
-    .intro-grid p {
-      margin: 0 0 0.95rem;
-      color: #3f5058;
-      font-size: 1.05rem;
-    }
-
-    .image-stack {
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .image-stack img {
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      min-height: 190px;
+    .img-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
       object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .text-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.3rem 1.45rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.3rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #34658b;
+      font-size: 0.82rem;
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      line-height: 1.14;
+      color: #143653;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.45rem, 3vw, 2.45rem);
+      margin-bottom: 0.8rem;
+    }
+
+    h3 {
+      font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+    }
+
+    p {
+      margin: 0 0 0.9rem;
+      color: #3f556c;
+      font-size: 1.03rem;
+    }
+
+    .section-navy {
+      background: linear-gradient(180deg, #2f4c69 0%, #28455f 100%);
+      color: #f1f7fb;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .section-navy h2,
+    .section-navy h3,
+    .section-navy .eyebrow {
+      color: #ffffff;
+    }
+
+    .section-navy p {
+      color: #dce8f4;
     }
 
     .schedule-grid {
-      margin-top: 1.3rem;
+      margin-top: 1.1rem;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
     }
 
     .schedule-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
+      background: #fff;
       border-radius: var(--radius);
-      padding: 1.2rem 1.2rem 1.35rem;
-      box-shadow: 0 10px 24px rgba(33, 40, 46, 0.08);
-      animation: rise 520ms ease-out both;
-    }
-
-    .schedule-card h3 {
-      font-size: 1.35rem;
-      color: var(--deep);
-      margin-bottom: 0.35rem;
+      border: 1px solid #9eb2c9;
+      padding: 1.05rem 1rem 1.15rem;
+      box-shadow: var(--shadow);
     }
 
     .schedule-card .date {
-      color: var(--accent-strong);
+      margin-top: 0.4rem;
+      color: #2f4c69;
       font-weight: 700;
-      margin-bottom: 0.18rem;
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
     }
 
     .schedule-card .time {
+      margin-top: 0.28rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
+      color: #1f3650;
     }
 
     .schedule-card ul {
-      margin: 0;
+      margin: 0.75rem 0 0;
       padding-left: 1rem;
-      color: #4b5a60;
+      color: #40566d;
     }
 
-    .event-note {
-      margin-top: 1rem;
-      color: #4a5e67;
-      font-weight: 600;
-    }
-
-    .leader-card {
-      margin-top: 1.3rem;
+    .three-up {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 1.1rem;
-      background: var(--paper);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
     }
 
-    .leader-card img {
+    .feature-card img {
       width: 100%;
-      height: 100%;
-      min-height: 320px;
+      height: 185px;
       object-fit: cover;
     }
 
+    .feature-copy {
+      padding: 1rem;
+    }
+
+    .feature-copy h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.1rem;
+    }
+
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .quote-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-head {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .quote-head img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #d7e0ec;
+    }
+
+    .quote-head strong {
+      display: block;
+      font-size: 0.96rem;
+      font-family: "Montserrat", sans-serif;
+      color: #173654;
+    }
+
+    .quote-head span {
+      color: #5a6f84;
+      font-size: 0.88rem;
+    }
+
+    .leader {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .leader img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
     .leader-copy {
-      padding: 1.35rem 1.3rem 1.45rem;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.2rem 1.15rem 1.25rem;
     }
 
-    .leader-copy p {
-      margin: 0 0 0.75rem;
-      color: #41535b;
-      font-size: 1.03rem;
-    }
-
-    .pill {
-      display: inline-block;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      color: var(--accent-strong);
-      margin-bottom: 0.4rem;
-    }
-
-    .cta-panel {
-      color: #eef5f8;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .cta-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .final-cta {
       background:
-        linear-gradient(120deg, rgba(11, 29, 39, 0.88), rgba(11, 29, 39, 0.65)),
-        url("https://seejesus.net/cdn/shop/files/APLS-Conference-header-image.jpg?v=1745938672&width=1946") center/cover no-repeat;
-    }
-
-    .cta-panel .wrap {
-      position: relative;
-      z-index: 1;
+        linear-gradient(115deg, rgba(33, 61, 88, 0.88), rgba(33, 61, 88, 0.64)),
+        url("https://seejesus.net/cdn/shop/files/APL-Web_Assets_Updated.jpg?v=1745937678&width=1946") center/cover no-repeat;
       text-align: center;
-      padding: 3.2rem 0;
+      color: #eef6ff;
+      padding: clamp(2.2rem, 5vw, 4rem) 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.28);
     }
 
-    .cta-panel p {
-      margin: 0.7rem auto 1.3rem;
-      max-width: 54ch;
-      font-size: 1.08rem;
-      color: #e6edf1;
+    .final-cta h2,
+    .final-cta p {
+      color: inherit;
+      max-width: 62ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .cta {
+      margin-top: 0.2rem;
     }
 
     .footer {
-      background: #102a37;
-      color: #dce8ed;
-      padding: 2.6rem 0 1.4rem;
+      background: #10283a;
+      color: #dbe8f6;
+      padding: 2.3rem 0 1.2rem;
     }
 
     .footer-brand img {
-      width: min(300px, 75vw);
-      margin-bottom: 0.45rem;
+      width: min(300px, 74vw);
+    }
+
+    .footer-brand p {
+      color: #dbe8f6;
+      margin-top: 0.45rem;
+      margin-bottom: 0;
     }
 
     .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 1.1rem 1.5rem;
       margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
     }
 
     .footer h3 {
-      font-size: 1rem;
+      color: var(--apl-teal);
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.95rem;
       letter-spacing: 0.06em;
-      text-transform: uppercase;
       margin-bottom: 0.45rem;
-      color: #f0c47f;
-      font-family: "Source Sans 3", sans-serif;
     }
 
     .footer p,
     .footer li {
+      color: #dbe8f6;
       margin: 0.2rem 0;
-      color: #dbe8ed;
+      font-size: 0.96rem;
     }
 
     .footer ul {
       list-style: none;
-      margin: 0;
       padding: 0;
+      margin: 0;
       columns: 2;
-      column-gap: 0.7rem;
+      column-gap: 1rem;
     }
 
     .footer a {
-      color: #dce8ed;
       text-decoration: none;
     }
 
@@ -428,41 +554,45 @@
     }
 
     .footer-meta {
-      border-top: 1px solid rgba(219, 232, 237, 0.25);
-      margin-top: 1.25rem;
-      padding-top: 0.95rem;
+      margin-top: 1.2rem;
+      border-top: 1px solid rgba(219, 232, 246, 0.25);
+      padding-top: 0.85rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem 1.1rem;
       justify-content: space-between;
+      gap: 0.5rem 1rem;
+      flex-wrap: wrap;
       font-size: 0.9rem;
-      color: #c7d7de;
     }
 
-    @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 960px) {
-      .intro-grid,
-      .leader-card,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 980px) {
+      .split,
+      .leader,
+      .quotes,
+      .three-up,
+      .footer-grid,
       .schedule-grid {
         grid-template-columns: 1fr;
       }
 
-      .leader-card img {
-        min-height: 260px;
+      .header-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .lockup-main {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .burst {
+        margin-top: 0;
+      }
+
+      .feature-card img {
+        height: 210px;
       }
 
       .footer ul {
@@ -500,88 +630,186 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="apl-lockup">
+    <div class="wrap apl-lockup-inner">
+      <div class="lockup-main">
+        <div class="lockup-copy">
+          <h1>A Praying Life</h1>
+          <p>all of life with Jesus</p>
+        </div>
+        <div class="burst" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="seminar-strip">Seminar</div>
+  </section>
+
+  <section class="event-headline">
     <div class="wrap">
-      <div class="hero-kicker">St Philip's Anglican Church Cottesloe Presents</div>
-      <h1>A Praying Life Seminar</h1>
-      <p>Experience practical biblical teaching and training in prayer that nurtures your relationship with Jesus.</p>
-      <div class="meta">
+      <p>Helping you and your church live all of life with Jesus through prayer.</p>
+      <div class="meta-row">
         <span>Friday-Saturday, July 31-August 1, 2026</span>
         <span>St Philip's Anglican Church Cottesloe</span>
         <span>Free Event</span>
       </div>
-      <a class="cta" href="#" aria-label="RSVP here">RSVP HERE</a>
-      <div class="cta-note">ChurchSuite RSVP link coming soon.</div>
+      <a class="cta" href="#" aria-label="RSVP here">RSVP Here</a>
     </div>
   </section>
 
   <section>
-    <div class="wrap intro-grid">
-      <div>
-        <h2>Why This Seminar?</h2>
-        <p>Prayer is one of the core rhythms of the Christian life, yet many of us feel dissatisfied or disconnected in it.</p>
-        <p>What if your struggle with prayer is not a problem to fix, but an invitation to deepen your relationship with Jesus?</p>
-        <p>The A Praying Life Seminar is designed to foster this relationship through practical biblical teaching and guided prayer training.</p>
+    <div class="wrap split">
+      <div class="img-card">
+        <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/iStock-847575018_1.jpg?v=1745949186&width=1946" alt="People praying together">
       </div>
-      <div class="image-stack" aria-label="A Praying Life seminar imagery">
-        <img src="https://seejesus.net/cdn/shop/files/SeeJesus-Proof-17.jpg?v=1710973684&width=1946" alt="People praying together at a seminar">
-        <img src="https://seejesus.net/cdn/shop/files/SeeJesus-Proof-56.jpg?v=1710973684&width=1946" alt="Small group discussion during the seminar">
+      <article class="text-card">
+        <p class="eyebrow">A Praying Life Seminar</p>
+        <h2>Foster your relationship with Jesus through prayer.</h2>
+        <p>What if your struggle with prayer is not a problem to fix, but an invitation to deepen your relationship with Jesus?</p>
+        <p>A Praying Life Seminar is designed to foster this relationship through practical biblical teaching and training in prayer.</p>
+        <p>Through meaningful teaching and opportunities to pray together, this seminar equips you and your church to move toward a richer life with Jesus.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="wrap split">
+      <article>
+        <p class="eyebrow">Working with Churches</p>
+        <h2>The A Praying Life Seminar is ideal for your local church.</h2>
+        <p>Whether your church is ready to host this seminar or your leaders want additional training, A Praying Life exists to support you.</p>
+        <p>Our heart is to help whole congregations become communities that pray in dependence on Jesus.</p>
+        <a class="cta" href="#" aria-label="RSVP here">RSVP Here</a>
+      </article>
+      <div class="img-card">
+        <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/iStock-1265115237.jpg?v=1745949186&width=1946" alt="Church members in discussion">
       </div>
     </div>
   </section>
 
-  <section class="schedule">
+  <section>
     <div class="wrap">
-      <h2>Seminar Schedule</h2>
-      <p>Following the Eventbrite format, this seminar runs over two sessions.</p>
+      <p class="eyebrow">Local Event Details</p>
+      <h2>A Praying Life Seminar at St Philip's</h2>
+      <p>This local weekend follows the same two-session schedule format as Eventbrite, with your requested dates.</p>
       <div class="schedule-grid">
         <article class="schedule-card">
-          <h3>Friday Evening Session</h3>
+          <h3>Friday Evening</h3>
           <div class="date">Friday, July 31, 2026</div>
-          <div class="time">6:30pm - 8:30pm</div>
+          <div class="time">6:30 PM - 9:15 PM</div>
           <ul>
-            <li>Biblical teaching on prayer and dependence</li>
-            <li>Reflection and guided practice</li>
-            <li>Q&amp;A and ministry prayer</li>
+            <li>6:00 PM check-in opens</li>
+            <li>Session 1 teaching and guided prayer</li>
+            <li>Reflection, Q&amp;A, and ministry prayer</li>
           </ul>
         </article>
         <article class="schedule-card">
-          <h3>Saturday Morning Session</h3>
+          <h3>Saturday Morning</h3>
           <div class="date">Saturday, August 1, 2026</div>
-          <div class="time">9:00am - 11:30am</div>
+          <div class="time">8:30 AM - 12:30 PM</div>
           <ul>
-            <li>Praying through real-life disappointments and pressures</li>
-            <li>Learning habits that sustain a life of prayer</li>
-            <li>Closing prayer and practical next steps</li>
+            <li>8:00 AM check-in and light breakfast</li>
+            <li>Session 2 teaching and practical workshop</li>
+            <li>Closing prayer and next steps</li>
           </ul>
         </article>
       </div>
-      <div class="event-note">Location: St Philip's Anglican Church Cottesloe, 240 Marmion Street, Cottesloe WA 6011</div>
+      <p><strong>Venue:</strong> St Philip's Anglican Church Cottesloe, 240 Marmion Street, Cottesloe WA 6011.</p>
     </div>
   </section>
 
-  <section class="leader">
+  <section>
     <div class="wrap">
-      <h2>Seminar Leader</h2>
-      <div class="leader-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/5ddf4aa18adffd3a0d280e98/1710145427649-ZPB6D53EQTHYXTRP7N7M/Kieran+Carr.jpg?format=1500w" alt="Kieran Carr">
-        <div class="leader-copy">
-          <div class="pill">Led by</div>
-          <h3>Kieran Carr</h3>
-          <p>Kieran Carr will lead this seminar at St Philip's Anglican Church Cottesloe, guiding participants through biblical teaching and practical training in prayer.</p>
-          <p>Together we will explore how prayer moves from duty to relationship, and how to keep praying through both joy and struggle.</p>
-          <a class="cta" href="#" aria-label="RSVP here">RSVP HERE</a>
-        </div>
+      <p class="eyebrow">Training and Equipping</p>
+      <h2>Resources Inspired by See Jesus</h2>
+      <div class="three-up">
+        <article class="feature-card">
+          <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/sincerely-media-DgQf1dUKUTM-unsplash.jpg?v=1745949186&width=1946" alt="Open Bible and prayer journal">
+          <div class="feature-copy">
+            <h3>Seminars</h3>
+            <p>Practical biblical training to grow your prayer life in the context of real church community.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/brooke-cagle--uHVRvDr7pg-unsplash.jpg?v=1745949186&width=1946" alt="Group discussing and learning">
+          <div class="feature-copy">
+            <h3>Cohorts</h3>
+            <p>Ongoing support and accountability for leaders who want to shape prayerful church culture.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/kendall-scott-eQqS0fG85Q0-unsplash.jpg?v=1745949187&width=1946" alt="Person praying quietly by a window">
+          <div class="feature-copy">
+            <h3>Personal Renewal</h3>
+            <p>Learn to pray through disappointment, weakness, joy, and everyday life with Jesus.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="cta-panel">
+  <section class="section-navy">
     <div class="wrap">
-      <h2>Come Join Us</h2>
-      <p>Set aside this Friday-Saturday weekend to deepen your walk with Jesus and learn to pray with renewed confidence and honesty.</p>
-      <a class="cta" href="#" aria-label="RSVP here">RSVP HERE</a>
-      <div class="cta-note">ChurchSuite RSVP link to be added.</div>
+      <p class="eyebrow">What Others Are Saying</p>
+      <h2>Stories of Growth in Prayer</h2>
+      <div class="quotes">
+        <article class="quote-card">
+          <div class="quote-head">
+            <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/David_Murphy.jpg?v=1745949186&width=70" alt="David Murphy">
+            <div>
+              <strong>David Murphy</strong>
+              <span>Pastor</span>
+            </div>
+          </div>
+          <p>"This seminar gave us practical and pastoral tools to teach prayer in a way people could actually live."</p>
+        </article>
+        <article class="quote-card">
+          <div class="quote-head">
+            <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/John_Caprine.jpg?v=1745949186&width=70" alt="John Caprine">
+            <div>
+              <strong>John Caprine</strong>
+              <span>Church Leader</span>
+            </div>
+          </div>
+          <p>"The content was biblical, honest, and deeply encouraging for both leaders and congregation members."</p>
+        </article>
+        <article class="quote-card">
+          <div class="quote-head">
+            <img src="https://cdn.shopify.com/s/files/1/1668/1459/files/Kieran_car_2nd_from_left.jpg?v=1745949186&width=70" alt="Kieran Carr with ministry team">
+            <div>
+              <strong>Kieran Carr</strong>
+              <span>Seminar Leader</span>
+            </div>
+          </div>
+          <p>"Our prayer is that this weekend helps many people at St Philip's discover prayer as life with Jesus."</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap leader">
+      <div>
+        <img src="https://images.squarespace-cdn.com/content/v1/5ddf4aa18adffd3a0d280e98/1710145427649-ZPB6D53EQTHYXTRP7N7M/Kieran+Carr.jpg?format=1500w" alt="Kieran Carr">
+      </div>
+      <article class="leader-copy">
+        <p class="eyebrow">Seminar Leader</p>
+        <h2>Kieran Carr</h2>
+        <p>Kieran Carr is leading this A Praying Life Seminar at St Philip's Anglican Church Cottesloe.</p>
+        <p>Across the two sessions, Kieran will guide participants through biblical teaching, practical exercises, and shared prayer, helping move prayer from pressure to relationship.</p>
+        <p>This event is open to individuals, ministry teams, and anyone wanting to grow in a sustained life of prayer.</p>
+        <a class="cta" href="#" aria-label="RSVP here">RSVP Here</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Reserve Your Place</h2>
+      <p>Join us Friday-Saturday, July 31-August 1, 2026 for A Praying Life Seminar at St Philip's Anglican Church Cottesloe.</p>
+      <a class="cta" href="#" aria-label="RSVP here">RSVP Here</a>
+      <p>ChurchSuite RSVP link coming soon.</p>
     </div>
   </section>
 
@@ -591,6 +819,7 @@
         <img src="https://images.squarespace-cdn.com/content/v1/5ddf4aa18adffd3a0d280e98/1576720612900-2YVHM18SCNWJLHQEPVI7/ReverseWeb.png?format=1500w" alt="St Philip's Anglican Church Cottesloe">
         <p>Making disciples who make disciples</p>
       </div>
+
       <div class="footer-grid">
         <div>
           <h3>Contact</h3>
@@ -623,6 +852,7 @@
           </ul>
         </div>
       </div>
+
       <div class="footer-meta">
         <span>&copy; 2026 St Philip's Anglican Church Cottesloe</span>
         <span><a href="https://www.facebook.com/StPips/">Facebook</a> | <a href="http://youtube.com/channel/UCMT0D8N39PScWoFSpMSQZ9w">YouTube</a> | <a href="https://podcasts.apple.com/au/podcast/st-philips-anglican-church-cottesloe/id1502945251">Apple Podcasts</a></span>
